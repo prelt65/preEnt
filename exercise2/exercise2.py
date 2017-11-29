@@ -31,6 +31,6 @@ cart = Cart() # Create shopping cart
 
 addItemsToCart(cart, items)
 
-total = Caisse.calculerTotal(cart) # Get Total
+total = Caisse.calculerTotal(cart, offre = True) # Get Total
 
 print("Le prix total est : {} $".format(total)) # Displays result
