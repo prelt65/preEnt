@@ -11,6 +11,9 @@ class Cart:
 
     def ajouterProduit(self, produit: Produit):
         self.produits.append(produit)
+    
+    def empty(self):
+        self.produits = []
 
 
 class Caisse:

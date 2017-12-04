@@ -4,15 +4,18 @@ from models import *
 pomme = Produit("Pomme", 0.60)
 orange = Produit("Orange", 1.25)
 
-def display(): # Display information
+
+def display():  # Display information
     print("Shopping Cart \n")
     print("Nos produits : ")
     print("Pomme : 0.60$")
     print("Orange : 1.25$ \n")
     print("Entrez les produits à acheter ex: pomme pomme orange pomme")
 
-def processInput(user_input): # Converts user input to string list
+
+def processInput(user_input):  # Converts user input to string list
     return [p for p in user_input.split()]
+
 
 def addItemsToCart(cart, items):
     for item in items:
@@ -20,17 +23,23 @@ def addItemsToCart(cart, items):
             cart.ajouterProduit(pomme)
         elif item.lower() == "orange":
             cart.ajouterProduit(orange)
+        else:
+            raise ValueError("Item : {} was not found".format(item))
 
 
-display()
-user_input = input("=> ")
+def main():
+    display()
+    user_input = input("=> ")
 
-items = processInput(user_input)
+    items = processInput(user_input)
 
-cart = Cart() # Create shopping cart
+    cart = Cart()  # Create shopping cart
 
-addItemsToCart(cart, items)
+    addItemsToCart(cart, items)
 
-total = Caisse.calculerTotal(cart, offre = True) # Get Total
+    total = Caisse.calculerTotal(cart)  # Get Total
 
-print("Le prix total est : {} $".format(total)) # Displays result
+    print("Le prix total est : {} $".format(total))  # Displays result
+
+if __name__ == "__main__":
+    main()
