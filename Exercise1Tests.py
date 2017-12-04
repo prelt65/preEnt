@@ -13,6 +13,14 @@ class Exercise1Tests(unittest.TestCase):
 
     def test_nextval_int_input(self):
         self.assertEqual(findNext(13642),'14236')
+    
+    def test_raise_error_on_float(self):
+        with self.assertRaises(ValueError):
+            findNext('15.32')
+
+    def test_raise_error_on_negative(self):
+        with self.assertRaises(ValueError):
+            findNext('-1234')
 
     def test_raise_value_error(self):
         with self.assertRaises(ValueError):

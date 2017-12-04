@@ -29,7 +29,11 @@ def findNext(user_input):
 
 def main():
     user_input = input("Enter a number : ")  # Read user input
-    print(findNext(user_input))
+
+    if user_input.isdigit(): # Validate
+        print(findNext(user_input))
+    else:
+        print("Veuillez entrer un nombre entier positif.")
 
 
 if __name__ == "__main__":
